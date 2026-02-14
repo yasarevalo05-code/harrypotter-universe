@@ -13,6 +13,18 @@ export class CasasHogwarts implements OnInit {
   // Carrusel de casas
   casas: Casa[] = [];
   imagenActual: number[] = [];
+// 👉 tarjeta girada en móvil
+flippedIndex: number | null = null;
+
+isTouchDevice(): boolean {
+  return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+}
+
+toggleCard(index: number) {
+  if (!this.isTouchDevice()) return; // en PC no hace nada
+
+  this.flippedIndex = this.flippedIndex === index ? null : index;
+}
 
   // Dobby flotante
   dobbyMessage = '💫 ¡Hola! Pasa el mouse por las tarjetas ✨';

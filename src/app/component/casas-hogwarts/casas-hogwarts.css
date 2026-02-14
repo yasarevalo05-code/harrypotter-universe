@@ -91,22 +91,17 @@
   transform-style: preserve-3d;
 }
 
-.card:hover .card-inner {
+/* hover SOLO en PC */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* giro por click en móvil */
+.card.flipped .card-inner {
   transform: rotateY(180deg);
 }
-
-
-/* 👉 SOLO dispositivos táctiles (celulares / tablets) */
-@media (hover: none) and (pointer: coarse) {
-  .card:hover {
-    transform: none; /* desactiva hover */
-  }
-
-  .card:active {
-    transform: scale(1.05); /* efecto al tocar */
-  }
-}
-
 
 .card-front,
 .card-back {
@@ -179,9 +174,14 @@
   transition: width 0.3s ease;
   animation: walk 1s infinite alternate;
 }
-.dobby-img:hover {
-  width: 170px;
+
+
+@media (hover: hover) {
+  .dobby-img:hover {
+    width: 170px;
+  }
 }
+
 @keyframes walk {
   0% { transform: translateY(0); }
   100% { transform: translateY(-5px); }

@@ -18,7 +18,10 @@
     </div>
 
     <!-- Tarjeta giratoria -->
-    <div class="card">
+    <div class="card"
+  (click)="toggleCard(i)"
+  [class.flipped]="flippedIndex === i">
+  
       <div class="card-inner">
         <!-- Frente -->
         <div class="card-front">
