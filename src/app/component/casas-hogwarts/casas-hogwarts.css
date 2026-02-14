@@ -95,6 +95,19 @@
   transform: rotateY(180deg);
 }
 
+
+/* 👉 SOLO dispositivos táctiles (celulares / tablets) */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover {
+    transform: none; /* desactiva hover */
+  }
+
+  .card:active {
+    transform: scale(1.05); /* efecto al tocar */
+  }
+}
+
+
 .card-front,
 .card-back {
   position: absolute;
@@ -345,8 +358,8 @@
   }
 
   .chatbot-panel {
-    width: 90%;
+    width: 80%;
     right: 5%;
-    bottom: 120px;
+    bottom: 115px;
   }
 }
