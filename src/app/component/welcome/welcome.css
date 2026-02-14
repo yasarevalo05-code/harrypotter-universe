@@ -1,20 +1,21 @@
 .welcome-container {
     background-image: url('/recursos/fondo_welcome.jpg');
     background-size: cover;
-    background-position: top;
+  background-position: center 0%;
     background-repeat: no-repeat;
+    background-attachment: fixed; 
     text-align: center;
     color: #fff;
     padding: 170px;
     position: relative;
     overflow: hidden;
-    height: 50vb;
-    box-shadow: 0 0 20px rgba(23, 115, 235, 0.3);
+    min-height: 60vh; 
+    box-shadow: 0 0 20px rgba(5, 5, 5, 0.3);
 }
 
 h1 {
     font-family: 'Cinzel Decorative', serif;
-    font-size: 30px;
+    font-size: clamp(20px, 3vw, 30px);
     text-shadow: 2px 2px 40px rgb(0, 0, 0);
     margin-top: 8%;
 }
@@ -44,7 +45,7 @@ h1 {
     transform: scale(1.1);
 }
 
-/* Animación del mensaje secreto */
+
 @keyframes appear {
     from {
         opacity: 0;
@@ -56,4 +57,88 @@ h1 {
         transform: scale(1);
         filter: brightness(1);
     }
+}
+
+
+.characters-container {
+background: linear-gradient(180deg, #000000, #020130); 
+ padding: 50px 20px;
+  text-align: center;
+  color: #f5e1a4; 
+}
+
+.characters-container h1 {
+    font-size: clamp(18px, 3vw, 28px);
+  margin-bottom: 80px;
+  margin-top: 10px;
+  text-shadow: 2px 2px 8px #000;
+  letter-spacing: 2px;
+}
+
+/* Grid de personajes */
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 250px); 
+  gap: 90px; 
+  justify-content: center;
+}
+
+.character-card img {
+  width: 250px;       
+  height: 250px;     
+  object-fit: cover;  
+  border-radius: 50%; 
+  border: 3px solid #f5e1a4;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.character-card img:hover {
+  transform: rotate(-2deg) scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+}
+
+.character-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 5px #000;
+}
+
+/* Descripción */
+.character-card p {
+  font-size: 0.9rem;
+  color: #f5e1a4;
+  text-shadow: 1px 1px 4px #000;
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+
+  .welcome-container {
+    padding: 80px 20px;
+  }
+
+  .characters-container h1 {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  .characters-grid {
+    grid-template-columns: 250px;
+    gap: 30px;
+  }
+}
+
+/*  Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .welcome-container {
+    padding: 120px 40px;
+  }
+
+  .characters-grid {
+    grid-template-columns: repeat(2, 250px);
+    gap: 35px;
+  }
 }

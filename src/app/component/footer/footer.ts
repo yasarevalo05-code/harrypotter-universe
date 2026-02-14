@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './footer.css'
 })
 export class Footer {
-  mensaje = '© 2025 Universo de Harry Potter - Yasmin Arevalo ⚡';
+mensaje = `© ${new Date().getFullYear()} Universo de Harry Potter - Yasmin Arevalo ⚡`;
 }

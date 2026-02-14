@@ -1,36 +1,73 @@
+<!-- Encabezado -->
 <div class="houses-header">
   <h1 class="houses-title">Conoce las Casas de Hogwarts</h1>
 </div>
 
+<!-- Secciones por casa -->
+<div 
+  class="house-section" 
+  *ngFor="let casa of casas; let i = index" 
+  [ngClass]="casa.nombre.toLowerCase()"
+>
+  <div class="overlay"></div>
 
-  <div class="house-section" *ngFor="let casa of casas; let i = index" [ngClass]="casa.nombre.toLowerCase()">
-    <div class="overlay"></div>
+  <div class="house-content">
+    <!-- Carrusel de imágenes -->
+    <div class="house-slider">
+      <img [src]="casa.imagenes[imagenActual[i]]" [alt]="casa.nombre">
+    </div>
 
-    <div class="house-content">
-      <!--Carrusel de imágenes-->
-      <div class="house-slider">
-        <img [src]="casa.imagenes[imagenActual[i]]" [alt]="casa.nombre">
-      </div>
+    <!-- Tarjeta giratoria -->
+    <div class="card">
+      <div class="card-inner">
+        <!-- Frente -->
+        <div class="card-front">
+          <img [src]="casa.logo" [alt]="casa.nombre" class="house-logo">
+        </div>
 
-      <!-- Tarjeta-->
-      <div class="card">
-        <div class="card-inner">
-          <!-- Frente -->
-          <div class="card-front">
-            <img [src]="casa.logo" [alt]="casa.nombre" class="house-logo">
-          </div>
-
-          <!-- Reverso -->
-          <div class="card-back">
-            <h2>{{ casa.nombre }}</h2>
-            <p><strong>Fundador:</strong> {{ casa.fundador }}</p>
-            <p><strong>Cualidades:</strong> {{ casa.cualidades }}</p>
-            <p><strong>Lider:</strong> {{ casa.lider }}</p>
-            <p><strong>Lema:</strong> {{ casa.lema }}</p>
-            <p><strong>Animal:</strong> {{ casa.animal }}</p>
-          </div>
+        <!-- Reverso -->
+        <div class="card-back">
+          <h2>{{ casa.nombre }}</h2>
+          <p><strong>Fundador:</strong> {{ casa.fundador }}</p>
+          <p><strong>Cualidades:</strong> {{ casa.cualidades }}</p>
+          <p><strong>Líder:</strong> {{ casa.lider }}</p>
+          <p><strong>Lema:</strong> {{ casa.lema }}</p>
+          <p><strong>Animal:</strong> {{ casa.animal }}</p>
         </div>
       </div>
     </div>
   </div>
+</div>
 
+<!-- ================= DOBBY FLOTA ABAJO ================= -->
+<div class="dobby-assistant" (click)="abrirChat()">
+  <img src="recursos/doby.png" alt="Dobby" class="dobby-img">
+  <div class="dobby-bubble">
+    ✨¿Querés descubrir más sobre las casas?
+  </div>
+</div>
+
+<!-- Chatbot de Dobby -->
+<div class="chatbot-panel" *ngIf="chatAbierto">
+    <!-- Cruz de cerrar -->
+  <button class="cerrar-cruz" (click)="cerrarChat()">✖</button>
+  <h3>Dobby te ayuda</h3>
+
+  <!-- Botones de casas -->
+  <div *ngIf="!casaSeleccionada" class="chat-options">
+    <button *ngFor="let casa of casas" (click)="seleccionarCasa(casa.nombre)">
+      {{ casa.nombre }}
+    </button>
+  </div>
+
+  <!-- Info de casa seleccionada -->
+  <div *ngIf="casaSeleccionada" class="chat-info">
+    <h2>{{ casaSeleccionada.nombre }}</h2>
+    <p>{{ casaSeleccionada.descripcion }}</p>
+    
+    <!-- Botones para volver o cerrar -->
+    <div class="chat-options" style="margin-top: 10px;">
+      <button (click)="volverOpciones()">Volver a casas</button>
+    </div>
+  </div>
+</div>

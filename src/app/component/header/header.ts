@@ -10,6 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router'
   styleUrl: './header.css'
 })
 export class Header {
+    menuOpen = false;
 menuItems = [
     { label: 'Inicio', link: '/welcome' },
     { label: 'Casas', link: '/casas' },
@@ -17,4 +18,12 @@ menuItems = [
     { label: 'Secretos', link: '/secretos' },
     { label: 'Expreso', link: '/expreso' }
   ];
+  
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
 }

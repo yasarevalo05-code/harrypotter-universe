@@ -1,15 +1,14 @@
-/* ==================== CONTENEDOR PRINCIPAL ==================== */
-/* fondo */
+/* ==================== ENCABEZADO ==================== */
 .houses-header {
   width: 100%;
   height: 80px;
-  background: linear-gradient(to bottom,rgb(0, 0, 7), rgb(58, 3, 1)); 
+  background: linear-gradient(to bottom, #000007, #3a0301); 
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
-/* titulo */
+
 .houses-title {
   font-size: 30px;
   color: #f5d342;
@@ -19,10 +18,10 @@
   border-radius: 15px;
 }
 
-/* ==================== SECCIONES DE CADA CASA ==================== */
+/* ==================== SECCIONES ==================== */
 .house-section {
   position: relative;
-  height: 600px;
+  min-height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +30,6 @@
   overflow: hidden;
 }
 
-/* Oscurecer fondo */
 .overlay {
   position: absolute;
   inset: 0;
@@ -39,19 +37,21 @@
   z-index: 0;
 }
 
-/* ==================== CONTENIDO DE CADA CASA ==================== */
 .house-content {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 800px 300px; 
+  grid-template-columns: 1fr 320px;
   align-items: center;
   justify-content: center;
-  gap: 100px; 
+  gap: 80px;
   padding: 40px;
+  max-width: 1200px;
+  width: 100%;
 }
 
-/* ==================== SLIDER DE IMÁGENES ==================== */
+
+/* ==================== SLIDER ==================== */
 .house-slider {
   height: 450px;
   width: 750px;
@@ -68,15 +68,15 @@
   object-fit: cover;  
   border-radius: 20px; 
 }
-/* ==================== TARJETAS DE INFORMACIÓN ==================== */
+
+/* ==================== TARJETAS ==================== */
 .card {
   width: 280px;
-  height: 300px;
+  height: 320px;
   perspective: 1000px;
   transition: transform 0.6s ease;
   margin-bottom: 20px;
   cursor: pointer;
-
 }
 
 .card:hover {
@@ -120,7 +120,7 @@
   width: 80%;
   height: auto;
   border-radius: 10px;
-  filter: drop-shadow(1px 1px 3px #000000);
+  filter: drop-shadow(1px 1px 3px #000);
 }
 
 .card-back h2 {
@@ -128,55 +128,225 @@
   margin-bottom: 10px;
   font-family: 'Cinzel Decorative', serif;
   color: gold;
-  text-shadow: 2px 2px 12px #000000;
+  text-shadow: 2px 2px 12px #000;
 }
 
 .card-back p {
   font-size: 17px;
   margin: 5px 0;
-  text-shadow: 1px 1px 12px #000000;
-}
-
-/* ==================== PERSONAJES ==================== */
-.characters h3 {
-  font-family: 'Cinzel Decorative', serif;
-  color: #f5d342;
-  text-shadow: 2px 2px 8px black;
-}
-
-.characters-row {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.characters-row img {
-  width: 120px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #000;
-  transition: transform 0.3s;
-}
-
-.characters-row img:hover {
-  transform: scale(1.1);
+  text-shadow: 1px 1px 12px #000;
 }
 
 /* ==================== COLORES POR CASA ==================== */
-.gryffindor .card-front { background: linear-gradient(135deg, #6d0505, #ca9b18); } 
-.gryffindor .card-back { background: linear-gradient(135deg, #6d0505, #ca9b18); } 
-
-.slytherin .card-front { background: linear-gradient(135deg, #1a472a, #738f6e); } 
-.slytherin .card-back { background: linear-gradient(135deg, #1a472a, #738f6e); } 
-
-.ravenclaw .card-front { background: linear-gradient(135deg, #0e1a40, #457fa7); } 
-.ravenclaw .card-back { background: linear-gradient(135deg, #0e1a40, #457fa7); } 
-
-.hufflepuff .card-front { background: linear-gradient(135deg, #daa624, #372e29); } 
-.hufflepuff .card-back { background: linear-gradient(135deg, #daa624, #372e29); }
+.gryffindor .card-front, .gryffindor .card-back { background: linear-gradient(135deg, #6d0505, #ca9b18); } 
+.slytherin .card-front, .slytherin .card-back { background: linear-gradient(135deg, #1a472a, #738f6e); } 
+.ravenclaw .card-front, .ravenclaw .card-back { background: linear-gradient(135deg, #0e1a40, #457fa7); } 
+.hufflepuff .card-front, .hufflepuff .card-back { background: linear-gradient(135deg, #daa624, #372e29); }
 
 /* ==================== FONDOS POR CASA ==================== */
 .gryffindor { background: rgb(97, 6, 3); }
 .slytherin { background: rgba(26, 71, 42, 0.8); }
 .ravenclaw { background: rgba(14, 26, 64, 0.8); }
 .hufflepuff { background: rgba(218, 166, 36, 0.8); }
+
+/* ==================== DOBBY ==================== */
+.dobby-assistant {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dobby-img {
+  width: 160px;
+  transition: width 0.3s ease;
+  animation: walk 1s infinite alternate;
+}
+.dobby-img:hover {
+  width: 170px;
+}
+@keyframes walk {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+.dobby-bubble {
+  position: absolute;
+  bottom: 170px;
+  right: 0;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* ==================== CHATBOT ==================== */
+.chatbot-panel {
+  position: fixed;
+  bottom: 180px;
+  right: 20px;
+  width: 320px;
+  max-height: 450px;
+  background: rgba(0, 0, 0, 0.856);
+  color: #fff;
+  padding: 15px;
+  border-radius: 20px;
+  overflow-y: auto;
+  box-shadow: 0 0 25px rgba(0,0,0,0.8);
+  z-index: 10000;
+  font-family: 'Cinzel Decorative', serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.chat-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.chat-options button {
+  flex: 1 1 45%; 
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f5d342;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.chat-options button:hover {
+  transform: scale(1.05);
+  background-color: #ca9b18;
+}
+
+/* Info de la casa (parrafón) */
+.chat-info {
+  background-color: rgba(0,0,0,0.85);
+  padding: 10px 12px;
+  border-radius: 12px;
+  line-height: 1.4;
+  text-align: justify;
+  font-size: 14px;
+  font-family: sans-serif ;
+  white-space: pre-line;
+}
+
+.chat-info h2 {
+  font-size: 18px;
+  color: #f5d342;
+  margin-bottom: 8px;
+}
+
+/* Cruz de cerrar */
+.chatbot-panel .cerrar-cruz {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f5d342;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.chatbot-panel .cerrar-cruz:hover {
+  transform: scale(1.2);
+  color: #ca9b18;
+}
+
+
+
+@media (max-width: 1024px) {
+
+  .house-section {
+    height: auto;
+    padding: 80px 20px;
+  }
+
+  .house-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .house-slider {
+    width: 100%;
+    height: 380px;
+  }
+
+  .card {
+    margin: 0 auto;
+  }
+
+  .dobby-img {
+    width: 120px;
+  }
+
+  .chatbot-panel {
+    right: 10px;
+    width: 280px;
+  }
+}
+@media (max-width: 600px) {
+
+  .houses-header {
+    height: 70px;
+  }
+
+  .houses-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .house-section {
+    padding: 60px 15px;
+  }
+
+  .house-slider {
+    height: 250px;
+    border-radius: 15px;
+  }
+
+  .card {
+    width: 220px;
+    height: 260px;
+  }
+
+  .card-back h2 {
+    font-size: 20px;
+  }
+
+  .card-back p {
+    font-size: 14px;
+  }
+
+  .dobby-img {
+    width: 90px;
+  }
+
+  .dobby-bubble {
+    display: none; 
+  }
+
+  .chatbot-panel {
+    width: 90%;
+    right: 5%;
+    bottom: 120px;
+  }
+}

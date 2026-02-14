@@ -1,44 +1,74 @@
 <div class="ticket-container">
+
   <img src="/recursos/expreso.jpg" class="background-img">
 
   <div class="form-card">
-    <h2>🎟️ Billete para el Expreso de Hogwarts</h2>
-    <p class="intro">¡Reserva tu asiento para el viaje más mágico del mundo!</p>
+    <h2>🎟️ Reserva tu viaje</h2>
+<div class="price-info">
+  <h3>💰 Tarifas del Expreso</h3>
 
-    <form [formGroup]="ticketForm" aria-label="Formulario de compra de tickets mágicos">
-      <label for="passengerName">Nombre del pasajero:</label>
-      <input id="passengerName" type="text" formControlName="passengerName" placeholder="Tu nombre mágico" />
+  <p><strong>Adulto:</strong> $ 5.000</p>
+  <p><strong>Niño:</strong> $ 3.000</p>
+  <p><strong>Primera clase:</strong> +30%</p>
+</div>
 
-      <label for="adultTickets">Entradas para adultos:</label>
-      <input id="adultTickets" type="number" min="0" formControlName="adultTickets" />
+    <form [formGroup]="ticketForm">
 
-      <label for="childTickets">Entradas para niños:</label>
-      <input id="childTickets" type="number" min="0" formControlName="childTickets" />
+      <label>Nombre</label>
+      <input type="text" formControlName="passengerName">
 
-      <button type="button" (click)="calculateTotal()" class="btn-calcular">Calcular Total </button>
+      <label>Adultos</label>
+      <input type="number" min="0" formControlName="adultTickets">
+
+      <label>Niños</label>
+      <input type="number" min="0" formControlName="childTickets">
+
+      <label>Tipo de asiento</label>
+      <select formControlName="seatType">
+        <option value="standard">Estándar</option>
+        <option value="first">Primera clase</option>
+      </select>
+
+      <button type="button" (click)="calculateTotal()" class="btn-calcular">
+        Calcular
+      </button>
+
     </form>
 
-    <p class="resultado" *ngIf="totalTickets > 0">
-      Total de Entradas: <strong>{{ totalTickets }}</strong>
-    </p>
+    <div class="resultado" *ngIf="totalTickets > 0">
+      <p>Entradas: {{ totalTickets }}</p>
+      <p>Total: $ {{ totalPrice | number }}</p>
+    </div>
 
-    <button *ngIf="totalTickets > 0 && !showTicket" (click)="displayTicket()" class="show-ticket-btn">Ver Ticket</button>
+    <button
+      *ngIf="totalTickets > 0"
+      (click)="displayTicket()"
+      class="show-ticket-btn">
+      Ver Ticket
+    </button>
+
   </div>
-</div> 
+</div>
 
-<!-- Fondo oscuro detrás del ticket -->
 <div class="ticket-overlay" *ngIf="showTicket" (click)="showTicket = false"></div>
 
 <div class="hogwarts-ticket" *ngIf="showTicket">
   <button class="close-btn" (click)="showTicket = false">✖</button>
 
-    <div class="ticket-header">
-      <p>LONDON TO HOGWARTS</p>
-    </div>
-    <div class="ticket-body">
-      <p>Pasajero: <strong>{{ ticketForm.get('passengerName')?.value || 'Mago/Maga' }}</strong></p>
-      <p>Entradas: <strong>{{ totalTickets }}</strong></p>
-      <p>Fecha: <strong>{{ travelDate }}</strong></p>
-    </div>
+  <div class="ticket-header">LONDON TO HOGWARTS</div>
+
+  <div class="ticket-body">
+  <div class="col">
+    <p><strong>Fecha:</strong> 12/02/2026</p>
+    <p><strong>Asiento:</strong> A12</p>
   </div>
 
+  <div class="divider"></div>
+
+  <div class="col">
+    <p><strong>Puerta:</strong> 3</p>
+    <p><strong>Hora:</strong> 20:30</p>
+  </div>
+</div>
+
+</div>
