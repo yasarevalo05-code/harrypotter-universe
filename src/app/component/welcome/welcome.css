@@ -117,6 +117,7 @@ background: linear-gradient(180deg, #000000, #020130);
 
   .welcome-container {
     padding: 80px 20px;
+    background-attachment: scroll;
   }
 
   .characters-container h1 {
@@ -135,6 +136,7 @@ background: linear-gradient(180deg, #000000, #020130);
 
   .welcome-container {
     padding: 120px 40px;
+    background-attachment: scroll;
   }
 
   .characters-grid {
