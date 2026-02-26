@@ -105,6 +105,14 @@ input:focus, select:focus {
   outline: none;
   box-shadow: 0 0 12px gold;
 }
+select {
+  color: #fff; 
+}
+
+select option {
+  color: #000;        
+  background: #fdf0c5; 
+}
 
 /* Botones */
 button {

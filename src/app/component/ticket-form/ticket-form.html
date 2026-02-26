@@ -4,13 +4,13 @@
 
   <div class="form-card">
     <h2>🎟️ Reserva tu viaje</h2>
-<div class="price-info">
-  <h3>💰 Tarifas del Expreso</h3>
 
-  <p><strong>Adulto:</strong> $ 5.000</p>
-  <p><strong>Niño:</strong> $ 3.000</p>
-  <p><strong>Primera clase:</strong> +30%</p>
-</div>
+    <div class="price-info">
+      <h3>💰 Tarifas del Expreso</h3>
+      <p><strong>Adulto:</strong> $ 50.000</p>
+      <p><strong>Niño:</strong> $ 25.000</p>
+      <p><strong>Primera clase:</strong> +30%</p>
+    </div>
 
     <form [formGroup]="ticketForm">
 
@@ -58,17 +58,20 @@
   <div class="ticket-header">LONDON TO HOGWARTS</div>
 
   <div class="ticket-body">
-  <div class="col">
-    <p><strong>Fecha:</strong> 12/02/2026</p>
-    <p><strong>Asiento:</strong> A12</p>
+
+    <div class="col">
+      <p><strong>Pasajero:</strong> {{ ticketForm.value.passengerName }}</p>
+      <p><strong>Fecha:</strong> {{ currentDate | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Asiento:</strong> {{ seatNumber }}</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="col">
+      <p><strong>Puerta:</strong> 3</p>
+      <p><strong>Hora salida:</strong> {{ departureTime | date:'HH:mm' }}</p>
+      <p><strong>Clase:</strong> {{ seatTypeLabel }}</p>
+    </div>
+
   </div>
-
-  <div class="divider"></div>
-
-  <div class="col">
-    <p><strong>Puerta:</strong> 3</p>
-    <p><strong>Hora:</strong> 20:30</p>
-  </div>
-</div>
-
 </div>

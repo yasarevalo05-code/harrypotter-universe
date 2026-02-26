@@ -43,7 +43,11 @@
 </div>
 
 <!-- ================= DOBBY FLOTA ABAJO ================= -->
-<div class="dobby-assistant" (click)="abrirChat()">
+  <div 
+  class="dobby-assistant"
+  [class.chat-abierto]="chatAbierto"
+  (click)="abrirChat()"
+>
   <img src="recursos/doby.png" alt="Dobby" class="dobby-img">
   <div class="dobby-bubble">
     ✨¿Querés descubrir más sobre las casas?
