@@ -1,59 +1,51 @@
-# HarrypotterUniverse
+# Universo de Harry Potter - Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+![Angular](https://img.shields.io/badge/Angular-20.3.1-red) ![License](https://img.shields.io/badge/License-MIT-blue) ![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
 
-## Development server
+Proyecto final de un curso de Angular que integra componentes, servicios, comunicación padre-hijo, ruteo y formularios reactivos, ambientado en el universo de **Harry Potter**.  
 
-To start a local development server, run:
+
+
+<img width="800" height="928" alt="git-harry-potter" src="https://github.com/user-attachments/assets/a2c62e3a-bd62-4c46-8181-7d44a37f2287" />
+
+🔗 [Ver proyecto en línea](https://harrypotter-universe.vercel.app/welcome)  
+
+---
+
+## ⚡ Funcionalidades
+
+- **Inicio:** Mensaje de bienvenida con variable booleana y sección de personajes usando interpolación y *ngIf.  
+- **Casas de Hogwarts:** Tarjetas giratorias, carrusel de imágenes (*ngFor, *ngClass), chat interactivo con Dobby, datos desde servicio.  
+- **Hechizos:** Lista de hechizos desde servicio local y API externa, comunicación padre-hijo (@Input/@Output), modal con animación (*ngIf).  
+- **Secretos:** Carrusel de secretos con animación de transición, imágenes y descripciones.  
+- **Expreso de Hogwarts:** Formulario reactivo con cálculo de total, ticket modal dinámico y generación de asiento aleatorio.  
+
+---
+
+## 🛠 Tecnologías
+
+- Angular 20.3.1, TypeScript, HTML5, CSS3  
+- Reactive Forms y directivas estructurales (`*ngIf`, `*ngFor`)  
+- Servicios e inyección de dependencias  
+- Consumo de APIs con HttpClient  
+- Ruteo con RouterOutlet (`home`, `casas`, `hechizos`, `secretos`, `expreso`)  
+
+---
+
+## 🚀 Instalación y ejecución
 
 ```bash
+# Clonar repositorio
+git clone https://github.com/yasarevalo05-code/harrypotter-universe.git
+
+# Ingresar al proyecto
+cd harrypotter-universe
+
+# Instalar dependencias
+npm install
+
+# Ejecutar servidor de desarrollo
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Abrir en navegador
+http://localhost:4200
