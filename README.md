@@ -6,7 +6,7 @@ Proyecto final de un curso de Angular que integra componentes, servicios, comuni
 
 
 
-<img width="800" height="928" alt="git-harry-potter" src="https://github.com/user-attachments/assets/a2c62e3a-bd62-4c46-8181-7d44a37f2287" />
+<img  alt="git-harry-potter" src="https://github.com/user-attachments/assets/a2c62e3a-bd62-4c46-8181-7d44a37f2287" />
 
 🔗 [Ver proyecto en línea](https://harrypotter-universe.vercel.app/welcome)  
 
